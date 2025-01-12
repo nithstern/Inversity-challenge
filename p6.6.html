@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gov.UK Help</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+  <!-- Main Container -->
+  <div class="max-w-3xl mx-auto p-8">
+    
+    <!-- Home Button (fixed) -->
+    <a href="https://www.gov.uk" class="fixed top-4 right-4 bg-black text-white text-xl px-6 py-4 rounded-lg flex items-center gap-2 hover:bg-gray-800 shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 2l10 10h-6v8h-8v-8h-6l10-10z"></path></svg>
+      Go to GOV.UK Home
+    </a>
+
+    <!-- Main Title -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Welcome to GOV.UK Help</h1>
+
+    <!-- Search Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Ask a Question</h2>
+      <div class="space-y-4">
+        <input
+          type="text"
+          id="searchQuery"
+          class="w-full p-4 text-xl border-2 border-blue-600 rounded-lg"
+          placeholder="Type your question here..."
+          aria-label="Search for a government help topic"
+        />
+        <button
+          id="searchButton"
+          class="w-full bg-blue-600 text-white text-xl py-4 rounded-lg hover:bg-blue-700"
+        >
+          Get Answer
+        </button>
+      </div>
+    </div>
+
+    <!-- Answer Section -->
+    <div id="answerSection" class="hidden bg-green-50 border-l-4 border-green-600 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-semibold text-green-800 mb-4">Answer:</h2>
+      <p id="answerText" class="text-xl text-gray-700 whitespace-pre-line"></p>
+    </div>
+
+    <!-- Example Questions -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">You can ask questions like:</h2>
+      <ul class="space-y-3 text-xl text-gray-700">
+        <li>How do I apply for a bus pass?</li>
+        <li>How do I check my pension?</li>
+        <li>How do I renew my driving licence?</li>
+        <li>What if I forget my password?</li>
+      </ul>
+    </div>
+
+    <!-- Tips for Using GOV.UK -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Tips for Using GOV.UK</h2>
+      <ul class="space-y-3 text-xl text-gray-700">
+        <li>
+          <strong>Use clear search terms:</strong> To get the best results, try to use simple, clear keywords like "pension", "driving licence", or "passport".
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('clearSearch')">Learn More</button>
+          <div id="clearSearch" class="hidden mt-2 text-lg text-gray-700">
+            Use precise terms to ensure you're finding the correct information quickly. For example, search for "apply for a bus pass in [your town]". You can use the gov search bar <a href="https://www.gov.uk/search" class="text-blue-600" target="_blank">here</a>.
+          </div>
+        </li>
+        <li>
+          <strong>Be specific:</strong> The more specific you are with your search, the quicker you’ll find the information you need. For example, try "how to apply for a bus pass in [your town]".
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('specificSearch')">Learn More</button>
+          <div id="specificSearch" class="hidden mt-2 text-lg text-gray-700">
+            The more detailed your query, the faster you can get relevant results. For example, try adding your location to your query. You can use the gov search bar <a href="https://www.gov.uk/search" class="text-blue-600" target="_blank">here</a>.
+          </div>
+        </li>
+        <li>
+          <strong>Check for updates:</strong> GOV.UK updates information regularly. Make sure to refresh the page or check for the latest updates on important topics like COVID-19 or immigration rules.
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('checkUpdates')">Learn More</button>
+          <div id="checkUpdates" class="hidden mt-2 text-lg text-gray-700">
+            GOV.UK regularly updates critical information, especially during times of change. Refresh the page or check for new updates. You can learn more <a href="https://www.gov.uk/coronavirus" class="text-blue-600" target="_blank">here</a>.
+          </div>
+        </li>
+        <li>
+          <strong>Stay secure:</strong> Always make sure you're on the official GOV.UK website by looking for the ".gov.uk" domain in the URL.
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('staySecure')">Learn More</button>
+          <div id="staySecure" class="hidden mt-2 text-lg text-gray-700">
+            Protect your personal information and make sure you're using official websites. Double-check the website address for ".gov.uk".
+          </div>
+        </li>
+        <li>
+          <strong>Use the contact details:</strong> If you're unable to find what you need, call the official GOV.UK helpline or contact the relevant service directly.
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('contactDetails')">Learn More</button>
+          <div id="contactDetails" class="hidden mt-2 text-lg text-gray-700">
+            If you can't find what you're looking for, reach out to GOV.UK support or contact the relevant service directly. You can learn more <a href="https://www.gov.uk/contact" class="text-blue-600" target="_blank">here</a>.
+          </div>
+        </li>
+        <li>
+          <strong>Save time with "Service Finder":</strong> GOV.UK has a "Service Finder" to help you locate the service you need faster.
+          <button class="text-blue-600 hover:text-blue-800" onclick="showLearnMore('serviceFinder')">Learn More</button>
+          <div id="serviceFinder" class="hidden mt-2 text-lg text-gray-700">
+            The Service Finder allows you to quickly locate the appropriate service for your needs. You can learn more <a href="https://www.gov.uk/service-manual" class="text-blue-600" target="_blank">here</a>.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Help Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Need More Help?</h2>
+      <ul class="space-y-3 text-xl text-gray-700">
+        <li>Ask a family member or friend to help you</li>
+        <li>Visit your local library - they can help you use the computer</li>
+        <li>Call GOV.UK help: 0800 123 4567</li>
+      </ul>
+    </div>
+
+    <!-- Safety Box -->
+    <div class="bg-red-50 border-2 border-red-600 p-6 rounded-lg">
+      <h2 class="text-2xl font-semibold text-red-800 mb-4">Staying Safe Online</h2>
+      <ul class="space-y-3 text-xl text-gray-700">
+        <li>Never share your password with anyone</li>
+        <li>Take your time - there's no rush</li>
+        <li>If something doesn't look right, ask for help</li>
+      </ul>
+    </div>
+
+    <!-- Fixed Home Button at Bottom -->
+    <a href="https://www.gov.uk" class="fixed bottom-4 right-4 bg-black text-white text-xl px-6 py-4 rounded-lg flex items-center gap-2 hover:bg-gray-800 shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 2l10 10h-6v8h-8v-8h-6l10-10z"></path></svg>
+      Go to GOV.UK Home
+    </a>
+
+  </div>
+
+  <script>
+    // Function to show extra information when Learn More is clicked
+    function showLearnMore(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.toggle('hidden');
+    }
+
+    // Static data for answers (unchanged)
+    const answers = {
+      "how do i apply for a bus pass": `1. Go to www.gov.uk\n2. Type "elderly bus pass" in the search box\n3. Enter your postcode when asked\n4. Follow your local council's instructions\n\nNeed help? Call your local council or ask at your library.`,
+      "how do i check my pension": `1. Go to www.gov.uk\n2. Type "check state pension" in the search\n3. Click "Check your State Pension forecast"\n4. Sign in with Government Gateway\n\nNeed help? Call the Pension Service: 0800 731 0469.`,
+      "how do i renew my driving licence": `1. Go to www.gov.uk\n2. Type "renew driving licence" in the search\n3. Have your current licence with you\n4. Have a valid passport or identity photo\n5. Have a debit or credit card ready\n\nNeed help? Call DVLA: 0300 790 6801.`,
+      "what if i forget my password": `1. Don't worry - this happens to many people\n2. Click "Forgotten password" on the login page\n3. Enter your email address\n4. Check your email for instructions\n5. Click the link in the email to make a new password\n\nNeed help? Ask a family member or call GOV.UK support.`
+    };
+
+    // Search functionality (unchanged)
+    const searchButton = document.getElementById('searchButton');
+    const searchQueryInput = document.getElementById('searchQuery');
+    const answerSection = document.getElementById('answerSection');
+    const answerText = document.getElementById('answerText');
+
+    searchButton.addEventListener('click', () => {
+      const query = searchQueryInput.value.trim().toLowerCase();
+      const answer = answers[query] || "I'm sorry, I don't have an answer for that question. Please try asking one of the example questions shown below, or call GOV.UK help on 0800 123 4567.";
+      
+      answerText.textContent = answer;
+      answerSection.classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>
